@@ -1,0 +1,27 @@
+<?php
+/**
+ * @var Magento\Framework\View\Element\Template $block
+ * @var InPost\InPostPay\ViewModel\Widget $widgetViewModel
+ * @var Magento\Framework\Escaper $escaper
+ * @var HyvaCsp $hyvaCsp
+ */
+
+use Hyva\Theme\ViewModel\HyvaCsp;
+
+$widgetViewModel = $block->getData('widget_view_model');
+if (!$widgetViewModel->isEnabled()
+    || !$widgetViewModel->isInPostPayOrder()
+    || !$widgetViewModel->isEnabledOnSuccessPage()) {
+    return;
+}
+$widgetWrapperClass = "inpay-widget-wrapper";
+$bindingPlace = $block->getBindingPlace();
+$scriptUrl = $widgetViewModel->getScriptUrl($bindingPlace);
+?>
+
+<script src="<?= $escaper->escapeUrl($scriptUrl) ?>"></script>
+<?php $hyvaCsp->registerInlineScript() ?>
+
+<div class="<?= /* @noEscape */ $widgetWrapperClass . ' ' . /* @noEscape */ $bindingPlace?>">
+    <inpost-thank-you/>
+</div>
