@@ -1,5 +1,5 @@
 {
-  "name": "inpost/magento2-module-inpost-pay",
+  "name": "gardenlawn/magento2-module-inpost-pay",
   "description": "Module integrates InPost Pay Mobile application with Magento store.",
   "version": "2.4.0",
   "type": "magento2-module",
@@ -12,7 +12,7 @@
     "monolog/monolog": "*",
     "psr/log": "*",
     "guzzlehttp/guzzle": "*",
-    "inpost/magento2-module-restrictions": ">=2.3.0",
+    "gardenlawn/magento2-module-restrictions": ">=2.3.0",
     "hyva-themes/magento2-theme-module": "^1.3.11"
   },
   "autoload": {
